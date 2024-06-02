@@ -1,0 +1,14 @@
+@startuml
+
+class User {
+    + username
+    + gmail
+}
+
+class UserProfile {
+    + bio
+}
+
+User "1" -- "1" UserProfile : has >
+
+@enduml

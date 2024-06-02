@@ -1,0 +1,9 @@
+@startuml
+class Genre {
+    + name
+}
+class Book {
+    + title
+}
+Genre "m" -- "n" Book : includes >
+@enduml
