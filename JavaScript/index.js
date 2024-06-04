@@ -207,3 +207,191 @@ let car = {
 };
 console.log(car.startEngine()); // Output: Engine started
 console.log(car.accelerate(60)); // Output: Accelerating to 60 mph
+
+function greet(){
+    console.log("Hello");
+}
+greet()
+
+function greet2(name){
+    console.log(`Hello ${name}`);
+}
+greet2("Ali")
+
+function greet3(name = "Ali"){
+    console.log(`Hello ${name}`);
+}
+greet3();
+greet3("Baba");
+
+function greet4(name = "Ali", age = 30){
+    console.log(`${name} is ${age} years old`);
+}
+greet4();
+greet4("Dad", 75);
+
+const greet5 = () => console.log("Hello");
+greet5();
+
+const greet6 = (name, age) => console.log(`${name} is ${age} years old`);
+greet6("Alice", 3);
+
+const CURRENCYRATE = 3.61;
+function convertCurrency(amount){
+    return amount * CURRENCYRATE;
+}
+console.log(convertCurrency(100));
+
+let convertCurrency2 = function(amount) {
+    return amount * CURRENCYRATE;
+}
+console.log(convertCurrency2(100));
+
+let convertCurrency3 = (amount) => {
+    return amount * CURRENCYRATE;
+}
+console.log(convertCurrency3(100));
+
+let convertCurrency4 = amount => amount * CURRENCYRATE;
+console.log(convertCurrency4(100));
+
+// stack
+let p = 10;
+let q = p;
+p = 20;
+console.log(p); // 20
+console.log(q); // 10
+
+// heap
+let r = {value: 10};
+let s = r;
+r.value = 20;
+console.log(r); // 20
+console.log(s); // 20
+
+// stack
+let number = 10;
+let increase = (n) => console.log(++n); 
+increase(10);
+
+// heap
+let obj = {value: 10}
+let increase2 = (n) => console.log(++n.value);
+increase2(obj);
+
+// function vs object
+function exampleFunction() {
+    console.log("Hello, I am an example function");
+}
+
+const exampleObject = {
+    name: "exampleObject",
+    exampleFunction: exampleFunction
+}
+
+exampleObject.exampleFunction();
+exampleObject["exampleFunction"]();
+
+const exampleArray = [1, 2, 3, 4, 5];
+console.log(typeof exampleFunction); //function
+console.log(typeof exampleObject); //object
+console.log(typeof exampleArray); //object
+
+exampleFunction.someProperty = "I am property";
+console.log(exampleFunction.someProperty);
+console.log(exampleFunction.name);
+console.log(exampleFunction.length);
+console.log(exampleFunction.toString());
+
+greet.someProperty2 = "teoh";
+console.log(greet.someProperty2);
+
+// Function declaration vs Function expression
+const greet7 = function(name) {
+    return "Ciao, " + name;
+};
+console.log(greet("James"));
+
+// Function as a  value
+function quack(num){
+    for(let i = 0; i < num; i++){
+        console.log("Quack!");
+    }
+}
+
+function fly(num){
+    for(let i = 0; i < num; i++){
+        console.log("Flying!");
+    }
+}
+
+let superFly = fly;
+superFly(3);
+
+let superQuack = quack;
+superQuack(2);
+
+// Function composition
+// function add(a, b){
+//     return a + b;
+// }
+
+// function multiply(a, b){
+//     return a * b;
+// }
+
+// function addAndMultiply(a, b, c){
+//     return multiply(add(a, b), c);
+// }
+
+// function compose(f, g){
+//     return function(a) {
+//         return f(g(a));
+//     };
+// }
+
+// console.log(addAndMultiply(2, 3, 4));
+
+const add = (a, b) => a + b;
+const multiply = (a, b) => a * b;
+const addAndMultiply = (a, b, c) => multiply(add(a, b), c);
+console.log(addAndMultiply(2, 3, 4));
+
+const compose = (f, g) => (x) => f(g(x));
+const addAndMultiply2 = compose(multiply, add);
+console.log(addAndMultiply2(2, 3, 4));
+
+const compose2 = (...fns) => x => fns.reduceRight((acc, fn) => fn(acc), x);
+const add2 = x => x + 2;
+const multiply3 = x => x * 3;
+const subtract4 = x => x - 4;
+const divide5 = x => x / 5;
+const addMultiplySubtractDivide = compose2(divide5, subtract4, multiply3, add2);
+console.log(addMultiplySubtractDivide(10));
+
+const greet8 = name => `Hello, ${name}!`;
+const exclaim = statement => `${statement.toUpperCase()}`;
+const welcome = compose2(greet8, exclaim);
+console.log(welcome("Brooke James"));
+
+// Function currying
+function multiply2(a){
+    return function(b){
+        return a * b;
+    }
+}
+console.log(multiply(2, 3)); // normal
+console.log(multiply2(2)(3)); // curry
+
+function curryThreeParameters(a){
+    return function(b){
+        return function(c){
+            return a + b + c;
+        };
+    };
+}
+var firstFunction = curryThreeParameters(1);
+var secondFunction = firstFunction(2);
+var result = secondFunction(3);
+console.log(result);
+console.log(curryThreeParameters(1)(2)(3));
