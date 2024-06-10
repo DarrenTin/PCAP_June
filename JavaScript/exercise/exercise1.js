@@ -33,10 +33,10 @@ if(inputDigit.length == 2){
 }
 
 // q4 overtime work
-let hours = prompt("Hours: ");
-let hourly_pay_rate = prompt("Rate: ");
-// let hours = 70;
-// let hourly_pay_rate = 7;
+// let hours = prompt("Hours: ");
+// let hourly_pay_rate = prompt("Rate: ");
+let hours = 50;
+let hourly_pay_rate = 10;
 let regular_pay = hours * hourly_pay_rate;
 let overtime_pay = 0;
 if(hours >= 40){

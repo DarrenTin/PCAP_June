@@ -449,6 +449,75 @@ let division = numbers2.reduceRight((num1, num2) => {
 });
 console.log(division);
 
+// foreach
+const arrayFruit = ['apple', 'banana', 'cherry'];
+arrayFruit.forEach(function(value){
+    console.log('Today I ate ' + value);
+});
+
+function printFruit(value){
+    console.log('Today I ate ' + value);
+}
+arrayFruit.forEach(printFruit);
+
+arrayFruit.forEach(function(value, index){
+    console.log("Today I ate " + value + " at index " + index);
+});
+
+arrayFruit.forEach(function(value, index, arr){
+    console.log("Today I ate " + value + " at index " + index + " in array " + arr);
+});
+
+// different ways to access iterable
+for(let i = 0; i < 5; i++){ // way 1
+    console.log(i);
+}
+
+const numbers3 = [1, 2, 3, 4, 5]; // way 2
+for(let i = 0; i < numbers3.length; i++){
+    console.log(numbers3[i])
+}
+
+for(let i of numbers3){ // way 3
+    console.log(i);
+}
+
+const string2 = "Hello"; // way 4
+for(let c of string2){
+    console.log(c);
+}
+
+const person = { // way 5
+    name: "John",
+    age: 30,
+}
+for(let key in person){ // way 6
+    console.log(key, person[key]);
+}
+
+for(let i in numbers3){ // way 7
+    console.log(i, numbers3[i]);
+}
+
+numbers3.foo = "bar"; // way 8
+for(let i in numbers3){
+    console.log(i, numbers3[i]);
+}
+
+numbers3.forEach(function(value){ // way 9
+    console.log(value);
+});
+
+numbers3.forEach(value => console.log(value)); // way 10
+
+numbers3.forEach(function(value, index){ // way 11
+    console.log(value, index);
+});
+
+numbers3.forEach(function(value, index, arr){ // way 12
+    console.log(value, index, arr);
+});
+
 // recursion
 // var varArr = [1, 3, 5, 7];
 // var sumRec = 0;
