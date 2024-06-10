@@ -395,3 +395,93 @@ var secondFunction = firstFunction(2);
 var result = secondFunction(3);
 console.log(result);
 console.log(curryThreeParameters(1)(2)(3));
+
+// reducer
+let arr = [1, 3, 5, 7];
+let summation = arr.reduce(function arraySum(sum, number){
+    return sum + number;
+});
+console.log('summation = ' + summation);
+console.log(arr);
+
+let summation2 = arr.reduce(function arraySum(sum, number, index){
+    if(index === 0){
+        return sum; // still 0, don't plus
+    } else {
+        return sum + number;
+    }
+}, 1000); // initial value is set to 1000
+console.log('summation2 = ' + summation2);
+console.log(arr);
+
+let evenNumbers = [2, 4, 6, 8, 10];
+let avg = evenNumbers.reduce((sum, number, currentIndex, array)=>{
+    sum += number;
+    if(currentIndex == array.length - 1){ // last element
+        return sum / array.length;
+    } else {
+        return sum;
+    }
+});
+console.log(avg);
+console.log(arr);
+
+// let evenNumbers = [2, 4, 6, 8, 10];
+// let avg = evenNumbers.reduce((sum, number, currentIndex)=>{
+//     sum += number;
+//     if(currentIndex == evenNumbers.length - 1){
+//         return sum / evenNumbers.length;
+//     } else {
+//         return sum;
+//     }
+// });
+// console.log(avg);
+// console.log(arr);
+
+let oddNumbers = [1, 3, 5, 7];
+let summation3 = oddNumbers.reduce(function arraySum(sum, number){
+    return sum + number;
+}, 4); // accumulator start from 4 instead of 0
+
+
+// recursion
+// var varArr = [1, 3, 5, 7];
+// var sumRec = 0;
+// let summationRecursive = (varArr) => {
+//     for(let i of varArr){
+//         if(varArr.length == 1){ // i = last element
+//             return sumRec + i;
+//         } else {
+//             sumRec += i;
+//             varArr.shift();
+//             return summationRecursive(varArr);
+//         }
+//     }
+// }
+// console.log("Recursive summation = " + summationRecursive(varArr));
+
+// let summationRecursive = (arr) => {
+//     if (arr.length === 0) {
+//         return 0;
+//     }
+//     return arr[0] + summationRecursive(arr.slice(1));
+// };
+// console.log("Recursive summation = " + summationRecursive([1, 3, 5, 7]));
+
+// let subtractionRecursive = (arr) => {
+//     if(arr.length === 1){
+//         return arr[0];
+//     }
+//     arr[1] = arr[0] - arr[1];   
+//     return subtractionRecursive(arr.slice(1));
+// };
+// console.log("Recursive substraction = " + subtractionRecursive([9, 1, 2, 3]));
+
+// let subtractionRecursive = (arr) => {
+//     if (arr.length === 1) {
+//         return arr[0];
+//     }
+//     let result = arr[0] - arr[1];
+//     return subtractionRecursive([result].concat(arr.slice(2)));
+// };
+// console.log("Recursive subtraction = " + subtractionRecursive([9, 1, 2, 3]));
