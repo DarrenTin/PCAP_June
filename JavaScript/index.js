@@ -443,6 +443,11 @@ let summation3 = oddNumbers.reduce(function arraySum(sum, number){
     return sum + number;
 }, 4); // accumulator start from 4 instead of 0
 
+let numbers2 = [1, 4, 7];
+let division = numbers2.reduceRight((num1, num2) => {
+    return num1 / num2;
+});
+console.log(division);
 
 // recursion
 // var varArr = [1, 3, 5, 7];
