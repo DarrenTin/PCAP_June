@@ -1,0 +1,70 @@
+/* Styles for the header component */
+/* Header Component */
+.header-component {
+    background-color: #f8f9fa; /* Light gray background */
+    padding: 10px; /* Padding around the content */
+    border-bottom: 2px solid #dee2e6; /* Border at the bottom */
+    text-align: center; /* Center-align the content */
+    display: flex; /* Flex layout for flexible positioning */
+    justify-content: space-between;
+    align-items: center; /* Align items vertically */
+}
+
+/* Styles for images within the header component */
+.header-component img {
+    width: 200px; /* Adjust the width of the image */
+    height: 200px; /* Adjust the height of the image */
+    border-radius: 50%; /* Circular border radius */
+    border: 3px solid #000; /* Black border */
+    object-fit: cover; /* Ensure the image covers the container */
+    margin: 0 10px; /* Add spacing between images */
+}
+
+/* Styles for h1 elements within the header component */
+.header-component h1 {
+    font-size: 2.5rem;
+    color: #343a40;
+    margin: 10px 0;
+}
+
+/* Styles for paragraph elements within the header component */
+.header-component p {
+    font-size: 1rem;
+    color: #6c757d;
+    margin: 10px 0;
+}
+
+/* Styles for anchor tags within the header component */
+.header-component a {
+    display: inline-block;
+    text-decoration: none;
+    color: #007bff;
+    padding: 10px 20px;
+    border: 1px solid #007bff;
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.header-component a:hover {
+    background-color: #007bff;
+    color: #fff;
+}
+
+/* Styles for elements with the class menu within the header component */
+.header-component .menu {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.header-component .menu a {
+    font-size: 1rem;
+    color: #495057;
+    padding: 5px 10px;
+    transition: color 0.3s;
+}
+
+.header-component .menu a:hover {
+    color: #007bff;
+}

@@ -449,6 +449,48 @@ let division = numbers2.reduceRight((num1, num2) => {
 });
 console.log(division);
 
+// recursion
+// var varArr = [1, 3, 5, 7];
+// var sumRec = 0;
+// let summationRecursive = (varArr) => {
+//     for(let i of varArr){
+//         if(varArr.length == 1){ // i = last element
+//             return sumRec + i;
+//         } else {
+//             sumRec += i;
+//             varArr.shift();
+//             return summationRecursive(varArr);
+//         }
+//     }
+// }
+// console.log("Recursive summation = " + summationRecursive(varArr));
+
+// let summationRecursive = (arr) => {
+//     if (arr.length === 0) {
+//         return 0;
+//     }
+//     return arr[0] + summationRecursive(arr.slice(1));
+// };
+// console.log("Recursive summation = " + summationRecursive([1, 3, 5, 7]));
+
+// let subtractionRecursive = (arr) => {
+//     if(arr.length === 1){
+//         return arr[0];
+//     }
+//     arr[1] = arr[0] - arr[1];   
+//     return subtractionRecursive(arr.slice(1));
+// };
+// console.log("Recursive substraction = " + subtractionRecursive([9, 1, 2, 3]));
+
+// let subtractionRecursive = (arr) => {
+//     if (arr.length === 1) {
+//         return arr[0];
+//     }
+//     let result = arr[0] - arr[1];
+//     return subtractionRecursive([result].concat(arr.slice(2)));
+// };
+// console.log("Recursive subtraction = " + subtractionRecursive([9, 1, 2, 3]));
+
 // foreach
 const arrayFruit = ['apple', 'banana', 'cherry'];
 arrayFruit.forEach(function(value){
@@ -467,6 +509,38 @@ arrayFruit.forEach(function(value, index){
 arrayFruit.forEach(function(value, index, arr){
     console.log("Today I ate " + value + " at index " + index + " in array " + arr);
 });
+
+// higher order function
+// every
+const ages = [1, 30, 39, 49, 10, 13];
+function isBelowThreshold(value){
+    return value < 40;
+}
+console.log(ages.every(isBelowThreshold));
+
+console.log(ages.every(function(value){
+    return value < 40;
+}));
+
+console.log(ages.every(value => value < 40));
+
+// some
+console.log(ages.some(isBelowThreshold));
+
+console.log(ages.some(function(value){
+    return value < 40;
+}));
+
+console.log(ages.some(value => value < 40));
+
+// filter
+console.log(ages.filter(isBelowThreshold));
+
+console.log(ages.filter(function(value){
+    return value < 40;
+}));
+
+console.log(ages.filter(value => value < 40));
 
 // different ways to access iterable
 for(let i = 0; i < 5; i++){ // way 1
@@ -518,44 +592,270 @@ numbers3.forEach(function(value, index, arr){ // way 12
     console.log(value, index, arr);
 });
 
-// recursion
-// var varArr = [1, 3, 5, 7];
-// var sumRec = 0;
-// let summationRecursive = (varArr) => {
-//     for(let i of varArr){
-//         if(varArr.length == 1){ // i = last element
-//             return sumRec + i;
-//         } else {
-//             sumRec += i;
-//             varArr.shift();
-//             return summationRecursive(varArr);
-//         }
-//     }
-// }
-// console.log("Recursive summation = " + summationRecursive(varArr));
+const animals = ['ant', 'bison', 'camel', 'duck', 'elephant'];
+console.log(animals.slice(2));
+console.log(animals);
+console.log(animals.slice(2, 4));
+console.log(animals.slice(1, 5));
 
-// let summationRecursive = (arr) => {
-//     if (arr.length === 0) {
-//         return 0;
-//     }
-//     return arr[0] + summationRecursive(arr.slice(1));
-// };
-// console.log("Recursive summation = " + summationRecursive([1, 3, 5, 7]));
+const months = ['Jan', 'Mar', 'Apr', 'Jun'];
+months.splice(1, 0, 'Feb'); // insert
+console.log(months);
 
-// let subtractionRecursive = (arr) => {
-//     if(arr.length === 1){
-//         return arr[0];
-//     }
-//     arr[1] = arr[0] - arr[1];   
-//     return subtractionRecursive(arr.slice(1));
-// };
-// console.log("Recursive substraction = " + subtractionRecursive([9, 1, 2, 3]));
+months.splice(4, 1); // delete
+console.log(months);
 
-// let subtractionRecursive = (arr) => {
-//     if (arr.length === 1) {
-//         return arr[0];
-//     }
-//     let result = arr[0] - arr[1];
-//     return subtractionRecursive([result].concat(arr.slice(2)));
-// };
-// console.log("Recursive subtraction = " + subtractionRecursive([9, 1, 2, 3]));
+months.splice(4, 0, 'May'); // replace
+console.log(months);
+
+const array1 = ['a', 'b', 'c'];
+const array2 = ['d', 'e', 'f'];
+console.log(array1.concat(array2));
+
+const string3 = 'Hello';
+const string4 = 'World';
+console.log(string3.concat('', string4));
+
+const str = 'The quick brown fox jumps over the lazy dog.';
+const words = str.split(' ');
+console.log(words);
+console.log(words[3]);
+
+const words2 = str.split(' ', 3);
+console.log(words2);
+
+const array3 = [5, 12, 8, 130, 44];
+const found = array3.find(element => element > 10);
+console.log(found); // 12
+console.log(array3);
+
+const foundIndex = array3.findIndex(element => element > 100);
+console.log(foundIndex);
+
+console.log(array3.includes(5)); // true
+console.log(array3.includes(4)); // false
+console.log(array3.includes(3, 3)); // false
+console.log(array3.includes(3, -1));  // true
+
+const beasts = ['ant', 'bison', 'camel', 'duck', 'bison'];
+console.log(beasts.indexOf('bison')); // 1
+console.log(beasts.indexOf('bison', 2)); // 4 (2 is start)
+console.log(beasts.indexOf('giraffe')); // -1
+
+// count backward
+console.log(beasts.lastIndexOf('bison')); // 4
+console.log(beasts.lastIndexOf('bison', 2)); // 1
+console.log(beasts.lastIndexOf('giraffe')); // -1
+
+// object operations
+const people = [
+    {name: "John", age: 30},
+    {name: "Alice", age: 25},
+    {name: "Bob", age: 20},
+];
+
+// specific detail of specific properties
+console.log(people[0].name);
+console.log(people[1].age);
+console.log(people[2].name);
+
+// loop object
+people.forEach(function(person){
+    console.log(person.name, person.age);
+});
+
+// arrow function loop object
+people.forEach(person => console.log(person.name, person.age));
+
+// map
+const names = people.map(person => person.name);
+console.log(names);
+
+// flat
+const array4 = [1, 2, [3, 4, [5, 6]]];
+const flat = array4.flat();
+console.log(flat);
+
+const flat2 = array4.flat(2);
+console.log(flat2);
+
+const array5 = [1, 2, [3, 4, [5, 6, [7, 8, [9, 10]]]]];
+const flat3 = array5.flat(Infinity);
+console.log(flat3);
+
+// block scope
+
+{
+    let outerVariable = 10;
+    {
+        let middleVariable = 20;
+
+        {
+            let innerVariable = 30;
+            console.log("Inner Block: ", outerVariable, middleVariable, innerVariable);
+        }
+        console.log("Middle Block: ", outerVariable, middleVariable);
+    }
+    console.log("Outer Block: ", outerVariable);
+}
+
+// global
+let globalVariable = "global";
+{
+    let globalVariable = "outer";
+    {
+        let globalVariable = "middle";
+        {
+            let globalVariable = "inner";
+            console.log("Inner Block: ", globalVariable);
+        }        
+        console.log("Middle Block: ", globalVariable);
+    }
+    console.log("Outer Block: ", globalVariable);
+}
+console.log("Global Scope: ", globalVariable);
+
+// loop scope
+// let globalVariable = "global";
+{
+    let globalVariable = "outer";
+    
+    for(let i = 0; i < 1; i++){
+        let globalVariable = "outer-loop";
+        console.log("Outer Block Loop: ", globalVariable);
+    }
+
+    {
+        let globalVariable ="middle";
+        
+        for(let i = 0; i < 1; i++){
+            let globalVariable = "middle-loop";
+            console.log("Middle Block Loop: ", globalVariable);
+        }
+
+        {
+            let globalVariable = "inner";
+            
+            for(let i = 0; i < 1; i++){
+                let globalVariable = "inner-loop";
+                console.log("Inner Block Loop: ", globalVariable);
+            }
+        }
+
+        console.log("Middle Block: ", globalVariable);
+
+    }
+    console.log("Outer Block: ", globalVariable);
+}
+console.log("Global Scope: ", globalVariable);
+
+// function scope
+function myFunction(){
+    let functionScopeVariable = "I am inside the function";
+    console.log(functionScopeVariable);
+}
+myFunction();
+// console.log(functionScopeVariable); // error
+
+// closure
+function outerFunction(){
+    let outerVariable = "I am outside";
+    function innerFunction(){
+        console.log(outerVariable);
+    }
+    return innerFunction;
+}
+const myClosure = outerFunction();
+myClosure();
+
+function counter(){
+    let count = 0;
+    return function(){
+        count++;
+        return count;
+    };
+}
+let myCounter = counter();
+console.log(myCounter()); // 1
+console.log(myCounter()); // 2
+console.log(myCounter()); // 3
+
+// arguments
+function greet9(name = "Guest"){
+    console.log("Guten morgen, " + name);
+}
+greet9("James");
+greet9();
+
+function add3(a, b){
+    console.log(a + b);
+}
+add3(1, 2, 3, 4, 5);
+
+function multiply4(a, b){
+    if(b===undefined) b = 1;
+    console.log(a * b);
+}
+multiply4(3);
+
+function sum(){
+    let total = 0;
+    for(let i = 0; i < arguments.length; i++){
+        total += arguments[i];
+    }
+    return total;
+}
+console.log(sum(1, 2, 3, 4, 5));
+
+// rest destruction
+function logArguments(...args){
+    console.log(args);
+}
+logArguments(6, 7, 8, 9, 10);
+
+function sum2(...args){
+    return args.reduce((a, b) => a + b);
+}
+console.log(sum(1, 2, 3, 4, 5));
+
+function sum3(discount, ...prices){
+    const total = prices.reduce((a, b) => a + b);
+    return total * (1 - discount);
+}
+console.log(sum(0.1, 20, 30, 50));
+
+function logUserInfo(name, age, ...hobbies) {
+    console.log(`Name: ${name}, Age: ${age}, Hobbies: ${hobbies.join(', ')}`);
+}
+logUserInfo("Alice", 30, "Reading", "Hiking", "Cooking");
+
+// spread operator
+const first = [1, 2, 3];
+const second = [4, 5, 6];
+const combined = [...first, ...second];
+console.log(combined);
+
+const third = {name: "James"};
+const forth = {job: "Developer"};
+const combined2 = {...third, ...forth};
+console.log(combined2);
+const combined3 = {...third, ...forth, location: "USA"};
+console.log(combined3);
+
+// destructuring
+const person2 = {
+    nickname: "Ciao",
+    age: 87,
+};
+const {nickname, age} = person2;
+console.log(nickname, age);
+
+const colors = ["red", "green", "blue"];
+const [firstColor, secondColor, thirdColor] = colors;
+console.log(firstColor, secondColor, thirdColor);
+
+const[firstColor2, ...rest] = colors;
+console.log(first, rest); // red ["green", "blue"]
+
+const[firstColor3, , thirdColor2] = colors;
+console.log(firstColor3, thirdColor2); // red blue
