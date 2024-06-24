@@ -1,4 +1,4 @@
-import CoffeeLogo from '../images/logo.avif';
+import CoffeeLogo from '../images/logo.jpg';
 import './Header.css';
 
 function Header() {

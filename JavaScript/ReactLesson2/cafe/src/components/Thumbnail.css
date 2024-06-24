@@ -1,32 +1,21 @@
 .thumbnail-component {
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    overflow: hidden;
-    width: calc(33.33% - 40px); /* Adjust the width to fit three columns with margin */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s, box-shadow 0.3s;
-    margin: 20px;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    text-decoration: none;
+    color: black;
 }
 
-.thumbnail-component:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+.thumbnail-component div {
+    background-color: #B9A28D;
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 40px;
 }
 
 .thumbnail-component img {
-    width: 150px; /* Smaller width to fit within the container */
-    height: auto;
-    display: block;
-    margin: 0 auto; /* Center alignment */
-    border-radius: 15px; /* Rounded corners for the entire image */
-    transition: transform 0.3s ease-in-out, filter 0.3s; /* Smooth transition for transform and filter */
-    object-fit: cover; /* Ensure the image covers the entire container */
-    filter: grayscale(0%); /* Initially, no grayscale effect */
-    background-color: #4a2c1e; /* Coffee color background */
-}
-
-/* Hover effect */
-.thumbnail-component img:hover {
-    transform: scale(1.05); /* Scale up the image slightly on hover */
-    filter: grayscale(20%); /* Apply a grayscale effect on hover */
+    height: 106px;
+    width: 106px;
 }
