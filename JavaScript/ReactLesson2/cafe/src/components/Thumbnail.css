@@ -19,3 +19,12 @@
     height: 106px;
     width: 106px;
 }
+
+.thumbnail-component:hover img {
+    transform: scale(1.2);
+}
+
+.thumbnail-component p {
+    color: blueviolet;
+    text-align: center;
+}
