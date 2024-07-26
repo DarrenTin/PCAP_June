@@ -2,6 +2,7 @@ import CoffeeLogo from '../images/logo.jpg';
 import './Header.css';
 import { Link } from 'react-router-dom';
 import CartIcon from '../images/cart.svg';
+import UserDetails from './UserDetails';
 
 function Header( { cart } ) {
     const cartQuantity = cart.reduce((acc, item) => acc + item.quantity, 0);
@@ -16,6 +17,7 @@ function Header( { cart } ) {
                     <img src={CartIcon} alt='Cart' />
                     <div className='badge'>{cartQuantity}</div>
                 </Link>
+                <UserDetails />
             </div>
         </header>
     )

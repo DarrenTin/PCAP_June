@@ -1,5 +1,6 @@
 import axios from 'axios';
 import './Cart.css';
+import Alert from './Alert';
 import ItemType from '../types/item';
 import PropTypes from 'prop-types';
 import CartRow from './CartRow';
@@ -10,6 +11,8 @@ function Cart( { cart, dispatch, items } ){
     const [phone, setPhone] = useState('');
     const [zipCode, setZipCode] = useState('');
     const [isEmployeeOfTheMonth, setIsEmployeeOfTheMonth] = useState(false); 
+    const [showSuccessAlert, setShowSuccessAlert] = useState(false);
+    const [apiError, setApiError] = useState('');
     const debounceRef = useRef(null);
 
     const subTotal = isEmployeeOfTheMonth ? 0 : cart.reduce((acc, item) => {
@@ -30,11 +33,24 @@ function Cart( { cart, dispatch, items } ){
     const total = subTotal + tax;
     const isFormValid = zipCode.length === 5 && name.trim();
 
-    const submitOrder = (event) => {
+    const submitOrder = async (event) => {
         event.preventDefault();
-        console.log('name: ', name);
-        console.log('phone: ', phone);
-        console.log('zipcode: ', zipCode);
+        try {
+            await axios.post('/api/orders', {
+                items: cart,
+                name,
+                phone,
+                zipCode,
+            });
+            setShowSuccessAlert(true);
+            // console.log('Order submitted');
+            // console.log('name: ', name);
+            // console.log('phone: ', phone);
+            // console.log('zipcode: ', zipCode);
+        } catch (error) {
+            console.log('Error submitting order: ', error);
+            setApiError(error?.response?.data?.error || 'Unknown error');
+        }
     };
 
     const onNameChange = (newName) => {
@@ -54,6 +70,14 @@ function Cart( { cart, dispatch, items } ){
 
     return(
         <div className='cart-component'>
+            <Alert visible={showSuccessAlert} type="success">
+                Thank you for your order.
+            </Alert>
+            <Alert visible={!!apiError} type="error">
+                <p>There was an error submitting your order.</p>
+                <p>{apiError}</p>
+                <p>Please try again.</p>
+            </Alert>
             <h2>Your Cart</h2>
             {cart.length === 0 ? (
                 <div>Your cart is empty</div>
