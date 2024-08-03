@@ -44,5 +44,6 @@ class Book(models.Model):
 class Genre(models.Model):
     name = models.CharField(max_length=50)
     books = models.ManyToManyField(Book)
+    
     def __str__(self):
         return self.name

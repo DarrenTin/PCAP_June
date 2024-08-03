@@ -12,8 +12,8 @@
     <tbody>
         {% for book in object_list %}
         <tr>
-            <td>{{ book.name }}</td>
             <td>{{ book.pages }}</td>
+            <td>{{ book.name }}</td>
             <td><a href="{% url 'book_view' book.id %}">View</a></td>
             <td><a href="{% url 'book_update' book.id %}">Edit</a></td>
             <td><a href="{% url 'book_delete' book.id %}">Delete</a></td>
